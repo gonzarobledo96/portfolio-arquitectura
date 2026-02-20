@@ -1,0 +1,144 @@
+:root {
+    --dorado: rgb(151, 109, 0);
+    --oscuro: #0a0a0a;
+}
+
+body {
+    background-color: var(--oscuro);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.linea-dorada {
+    width: 60px;
+    height: 4px;
+    background-color: var(--dorado);
+    margin-top: 10px;
+}
+
+.titulo-categoria {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #aaa;
+    margin-bottom: 25px;
+    border-left: 3px solid var(--dorado);
+    padding-left: 15px;
+}
+
+/* Galería */
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    aspect-ratio: 16 / 10;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px; /* Evita que el texto toque los bordes */
+}
+
+.overlay span {
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Queda más arquitectónico */
+    line-height: 1.4;
+    /* margin: 30px; */
+
+    
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: none; /* Se activa con JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    border: 2px solid #333;
+}
+
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#close-btn:hover {
+    color: var(--dorado);
+}
+
+
+/* Botones de navegación en el Lightbox */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 20px;
+    transition: color 0.3s;
+    z-index: 3000;
+}
+
+.nav-btn:hover { color: var(--dorado); }
+#prev-btn { left: 10px; }
+#next-btn { right: 10px; }
+
+/* Lightbox oculto por defecto */
+.lightbox-hidden { display: none; }
+#lightbox.active { display: flex; }
