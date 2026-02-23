@@ -1,11 +1,12 @@
 :root {
     --dorado: rgb(151, 109, 0);
-    --oscuro: #0a0a0a;
+    /* --oscuro: #0a0a0a; */
+    --oscuro: rgb(22, 32, 44);
 }
 
 body {
     background-color: var(--oscuro);
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     font-family: 'Poppins', sans-serif;
 }
 
